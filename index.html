@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+<body>
+<figure><img src="Image%2002.06.20,%2011-30.png"/></figure>
+
+<h1>Kryptowährungen</h1>
+
+<h3>Ausarbeitung für Sicherheit in Netzen</h3>
+
+<figure><img src="Profile.png"/></figure>
+
+<ul>
+	<li>Name: <strong>André Kuhlmann</strong></li>
+	<li>Matrikelnummer: <strong>779690</strong></li>
+	<li>Fachbereich: <strong>Elektro- und Informationstechnik <br/>Hochschule Düsseldorf</strong></li>
+	<li>Erstellt: <strong>1. Juni 2020</strong></li>
+</ul>
+
+<h2>Inhaltsverzeichnis</h2>
+
+<div id="toc"></div>
+<h2>Einleitung</h2>
+
+<p>Der Traum vom vielen Geld. Für einige ist dies, im Dezemeber 2017, Realität geworden, als der Bitcoin sein Allzeithoch von 11.236€ <sup><a id="ffn1" href="#fn1" class="footnote">1</a></sup> erreichte. <br/>Das viele Geld kann ich, mit meiner Ausarbeitung nicht versprechen, aber hoffentlich konnte ich Ihnen, dem Leser — das Thema Kryptowährung und insbesondere auch die zugrunde liegende Mechanik der <em>Blockchain</em> verständlich machen. </p>
+
+<p>Der Grund weshalb ich mich für dieses Thema entschieden habe ist der, dass ich mich bereits häufiger mit dem Thema Kryptowährungen beschäftigt habe — nie aber tiefer in die Funktionsweise eingetaucht bin. Das hoffe ich mit dieser Ausarbeitung zu ändern.</p>
+
+<p>Aufgrund dessen, dass es sich um das Modul <em>Sicherheit in Netzen</em> handelt, in welchem diese Ausarbeitung entstehen soll, werde ich mich, nach einigen Grundlagen, eingehend mit der <strong>Struktur</strong> und der <strong>Sicherheit</strong> einer Blockchain beschäftigen.</p>
+
+<h2>Grundlagen</h2>
+
+<h3>Historie</h3>
+
+<h4>Geld und Währungen</h4>
+
+<h4>Erste Kryoptwährung</h4>
+
+<p>Im Jahr 2008 wurde unter dem Decknamen <em>Satoshi Nakamoto</em> ein <a href="https://bitcoin.org/bitcoin.pdf">Entwurf</a> für ein <em>Peer-to-Peer Electronic Cash System</em>, unter dem Namen <em>Bitcoin</em> veröffentlicht. In dem Dokument beschreibt <em>Satoshi Nakamoto</em> eine Währung welche man sicher und ohne einen Mittelsmann, wie bspw. eine Bank, von einer Person zu einer anderen senden kann. </p>
+
+<div class="block">
+	<span style="position: absolute; left: -42px; font-size: 120%; color: #bbb; border-radius: 50%; background-color: #eee; height: 24px; width: 24px; text-align: center; line-height: 24px; user-select: none;">i</span>
+	<p class="block-title">Satoshi Nakamoto</p>
+	<p>Bis heute ist nicht geklärt, wer sich hinter dem Pseudonym verbirgt. Es wird spekuliert, dass hinter <i>Satoshi Nakamoto</i> eine ganze Gruppe an Entwicklern steht.</p>
+</div>
+<h3>Kann Bitcoin eine bereits bestehende Währung ablösen?</h3>
+
+<h3>Welche unterschiede gibt es zur Physischen Währung?</h3>
+
+<h3>Warum ist ein Bitcoin so teuer?</h3>
+
+<ul>
+	<li>Preis Wahrnehmung</li>
+</ul>
+
+<h3>Wie kann man Bitcoins bekommen</h3>
+
+<ul>
+	<li>Börsen
+
+		<ul>
+			<li>Was macht eine Börse</li>
+			<li>Coinbase</li>
+		</ul></li>
+	<li>Was bedeutet Mining?</li>
+</ul>
+
+<h3>Warum gibt es so viele Kryptowährungen</h3>
+
+<h3>Wie kommt der Preis eines Bitcoins zu stande?</h3>
+
+<h2>Blockchain</h2>
+
+<p>Klären wir zu beginn erst einmal was die Blockchain genau ist. </p>
+
+<p>Die Blockchain ist im einfachsten Sinne eine, über viele Teilnehmer, verteilte Datenbank. </p>
+
+<p><a href="https://www.mckinsey.com/~/media/McKinsey/Business%20Functions/McKinsey%20Digital/Our%20Insights/Blockchain%20explained%20What%20it%20is%20and%20isnt%20and%20why%20it%20matters/Blockchain-explained-What-it-is-and-isnt.ashx" title="Blockchain Explained - What it is and isn’t - McKinsey &amp; Company [September 2018]">Blockchain explained: What it is and isn’t, and why it matters</a></p>
+
+<p>In den Medien wird Blockchain und Bitcoin häufig zu einem vermischt. Es ist hier aber eine Strikte Trennung zu machen. Die Blockchain ist das Verwaltungsbuch in welchem alle Transaktionen, der digitalen Währung eingetragen werden.</p>
+
+<p>Kryptowährungen sind nur ein kleiner Teil von dem was man mit einer Blockchain verwalten kann. In einer Blockchain können jegliche Art von Daten gespeichert werden. Einige Beispiele in denen eine Blockchain zum Einsatz kommt sind:</p>
+
+<ul>
+	<li>Chat Anwendungen</li>
+	<li>Grundstückbesitztümer</li>
+</ul>
+
+<p>Fee = Paying for Trust</p>
+
+<p>„Trustless“ = Es wird keine Autorität benötigt die den Besitz des Geldes bestätigen muss, wie bspw. eine Bank.</p>
+
+<ul>
+	<li>cryptographically secure database</li>
+	<li>private / public key infastructure</li>
+	<li>desto mehr Server vorhanden desto sicherer?</li>
+	<li>Speicherung / Speicherplatz</li>
+</ul>
+
+<figure><img src="Bildschirmfoto%202020-06-03%20um%2013.00.21.png"/></figure>
+
+<h3>Aufbau der Blockchain</h3>
+
+<p>Die zu speicherende Information wird in einzelnen Paketen, so genannten <strong>Blöcken</strong> gespeichert. Jeder Block hat eine eindeutig referenzierbare Identifikationsnummer.</p>
+
+<h3>Wie ist ein Bitcoin Paket strukturiert?</h3>
+
+<h3>Scalebility Problem</h3>
+
+<h3>Welche Angriffspunkte gibt es?</h3>
+
+<ul>
+	<li>Wallet geht verloren</li>
+	<li>Wallet Zugangsdaten werden geklaut / unsicher</li>
+	<li>Kann man die Blockchain manipulieren. Wenn ja mit welchem aufwand?</li>
+	<li>Gab es bereits manipulations versuche.</li>
+</ul>
+
+<h2>Beispielimplemntierung</h2>
+
+<h2>Schlusswort</h2>
+
+<h3>Welche anderen Einsatzgebiete gibt es für Blockchains?</h3>
+
+<h3>Was für folgen hat die Anonymität?</h3>
+
+<ul>
+	<li>Darknet</li>
+	<li>Illegale aktivitäten</li>
+</ul>
+
+<h2>Quellenverzeichnis</h2>
+
+<script>
+/* Preferences */
+
+let min = 2
+let max = 6
+
+let blacklist = [
+  'Inhaltsverzeichnis',
+  'Ausarbeitung für Sicherheit in Netzen'
+]
+
+/* =========== */
+
+var headers = []
+
+window.onload = function() {
+  	generateTableOfContent()
+}
+
+
+/* Functions */
+
+function loadLastUpdatedBitbucket(user, repo) {
+	let $field = document.getElementById('lastUpdated')
+	let url = `https://api.bitbucket.org/2.0/repositories/${user}/${repo}/`
+
+	fetchAsync(url)
+		.then(data => { 
+			let updated = new Date(data.updated_on)
+
+			let options = { 
+				year: 'numeric', 
+				month: 'long', 
+				day: 'numeric'
+			}
+	
+			$field.innerHTML = updated.toLocaleDateString('de-DE', options)
+		})
+		.catch(error => { $field.innerHTML = error.message })
+}
+
+function generateTableOfContent() {
+	let $toc = document.getElementById('toc')
+
+	$toc.innerHTML = 'Lädt ...'
+
+	// gets all the headers that are available
+  headers = getHeaders(min, max)
+	
+  // The html string that gets populated and later displayed inside the
+  // table of content #toc element
+  var html = ''
+  
+  // The previousValue stores the depth of the last header
+  var previousValue = min - 1
+
+  headers.forEach(($header, index) => {
+  	// Get values
+    let headerValue = parseInt($header.localName.charAt(1))
+    let difference = previousValue - headerValue
+    let title = $header.innerHTML
+    let camelTitle = toCamelCase(title)
+
+		// Check if title is blacklisted
+    if (blacklist.includes(title)) {
+      return
+    }
+    
+    // Update header id
+    $header.id = camelTitle
+
+    var i = 0
+
+		// Add wrapper
+    if (difference > 0) {
+      // Go out
+      for (i; i < Math.abs(difference); i++) {
+        html += '</ul>'
+        previousValue--
+      }
+
+    } else if (difference < 0) {
+      // Go in
+      for (i; i < Math.abs(difference); i++) {
+        html += '<ul>'
+        previousValue++
+      }
+    }
+
+		// Add list item
+    html += `<li><a href="#${camelTitle}">${title}</a></li>`
+  })
+
+  $toc.innerHTML = html
+}
+
+function getHeaders(min, max) {
+  var tagNames = ''
+  var i = min
+
+  for (i; i <= max; i++) {
+    tagNames += `h${i}`
+    if (i != max) {
+      tagNames += ','
+    }
+  }
+
+  return document.querySelectorAll(tagNames)
+}
+
+// https://stackoverflow.com/a/2970588/4179020
+function toCamelCase(str) {
+  return str
+    .replace(/\s(.)/g, function($1) {
+      return $1.toUpperCase();
+    })
+    .replace(/\s/g, '')
+    .replace(/^(.)/, function($1) {
+      return $1.toLowerCase();
+    });
+}
+
+//https://gist.github.com/msmfsd/fca50ab095b795eb39739e8c4357a808 
+// async function
+async function fetchAsync (url) {
+  // await response of fetch call
+  let response = await fetch(url);
+  // only proceed once promise is resolved
+  let data = await response.json();
+  // only proceed once second promise is resolved
+  return data;
+}
+
+/* ========= */
+</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$']]}});</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=default' async></script>
+<ol id="footnotes">
+	<li id="fn1">finanzen.net. (2020). Entwicklung des Bitcoin-Kurses von Januar 2017 bis Juni 2020 (in Euro). Statista. Statista GmbH. Zugriff: 11. Juni 2020. 
+
+		<p><a href="https://de.statista.com/statistik/daten/studie/781906/umfrage/kursentwicklung-des-bitcoin-gegenueber-dem-euro/">https://de.statista.com/statistik/daten/studie/781906/umfrage/kursentwicklung-des-bitcoin-gegenueber-dem-euro/</a> <a href="#ffn1">&#8617;</a></p>
+	</li>
+</ol></body>
+</html>
+
