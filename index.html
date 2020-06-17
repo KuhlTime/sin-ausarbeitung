@@ -6,9 +6,9 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 	</head>
 <body>
-<figure><img src="Image%2002.06.20,%2011-30.png"/></figure>
+<figure><img src="Header.svg"/></figure>
 
-<h1>Kryptowährungen</h1>
+<h1>Die Funktionsweise einer Kryptowährung</h1>
 
 <h3>Ausarbeitung für Sicherheit in Netzen</h3>
 
@@ -19,121 +19,221 @@
 	<li>Matrikelnummer: <strong>779690</strong></li>
 	<li>Fachbereich: <strong>Elektro- und Informationstechnik <br/>Hochschule Düsseldorf</strong></li>
 	<li>Erstellt: <strong>1. Juni 2020</strong></li>
+	<li>Letztes Update: <b><span id="lastUpdated">Lädt ...</span></b> </li>
 </ul>
 
 <h2>Inhaltsverzeichnis</h2>
 
 <div id="toc"></div>
+<hr />
+
 <h2>Einleitung</h2>
 
-<p>Der Traum vom vielen Geld. Für einige ist dies, im Dezemeber 2017, Realität geworden, als der Bitcoin sein Allzeithoch von 11.236€ <sup><a id="ffn1" href="#fn1" class="footnote">1</a></sup> erreichte. <br/>Das viele Geld kann ich, mit meiner Ausarbeitung nicht versprechen, aber hoffentlich konnte ich Ihnen, dem Leser — das Thema Kryptowährung und insbesondere auch die zugrunde liegende Mechanik der <em>Blockchain</em> verständlich machen. </p>
+<p>Der Traum vom vielen Geld. Für einige ist dies, im Dezemeber 2017, Realität geworden, als der Bitcoin sein Allzeithoch von 11.236€ <sup><a id="ffn1" href="#fn1" class="footnote">1</a></sup> erreichte. <br/>Das viele Geld kann ich, mit meiner Ausarbeitung nicht versprechen, aber hoffentlich konnte ich Ihnen, dem Leser — das Thema Kryptowährung und insbesondere auch die zugrunde liegende Mechanik der <em>Blockchain</em> verständlicher machen. </p>
 
 <p>Der Grund weshalb ich mich für dieses Thema entschieden habe ist der, dass ich mich bereits häufiger mit dem Thema Kryptowährungen beschäftigt habe — nie aber tiefer in die Funktionsweise eingetaucht bin. Das hoffe ich mit dieser Ausarbeitung zu ändern.</p>
 
-<p>Aufgrund dessen, dass es sich um das Modul <em>Sicherheit in Netzen</em> handelt, in welchem diese Ausarbeitung entstehen soll, werde ich mich, nach einigen Grundlagen, eingehend mit der <strong>Struktur</strong> und der <strong>Sicherheit</strong> einer Blockchain beschäftigen.</p>
+<p>Aufgrund dessen, dass es sich um das Modul <em>Sicherheit in Netzen</em> handelt, in welchem diese Ausarbeitung entstehen soll, werde ich mich, nach einigen Grundlagen, eingehend mit der <strong>Struktur</strong> und der damit verbundenen <strong>Sicherheit</strong>, einer Blockchain, beschäftigen.</p>
+
+<hr />
 
 <h2>Grundlagen</h2>
 
-<h3>Historie</h3>
-
 <h4>Geld und Währungen</h4>
 
-<h4>Erste Kryoptwährung</h4>
+<p>Die ersten Währung wurde etwa 600 vor Christus <sup><a id="ffn2" href="#fn2" class="footnote">2</a></sup> in Lydien, in der heutigen Türkei, von dem damaligen König Alyattes dem II ausgestellt.</p>
 
-<p>Im Jahr 2008 wurde unter dem Decknamen <em>Satoshi Nakamoto</em> ein <a href="https://bitcoin.org/bitcoin.pdf">Entwurf</a> für ein <em>Peer-to-Peer Electronic Cash System</em>, unter dem Namen <em>Bitcoin</em> veröffentlicht. In dem Dokument beschreibt <em>Satoshi Nakamoto</em> eine Währung welche man sicher und ohne einen Mittelsmann, wie bspw. eine Bank, von einer Person zu einer anderen senden kann. </p>
+<p></p>
+
+<p></p>
+
+<div class="block">	
+	<p class="block-title">„Bin ich Krösus?”</p>
+	<p>König Alyattes der II ist nicht nur Vater der ersten Geldmünzen sondern auch Vater seines später geborenen Sohnes <i>Krösus</i>. <i>Krösus</i> erlangte durch die Münzpregung und Tributzahlungen ein Vermögen, weswegen noch heute der Satz „Bin ich Körsus?” bekannt ist.
+</p>
+<p><sup><a id="ffn3" href="#fn3" class="footnote">3</a></sup></p>
+
+</div> 
+<p>Geld ist ein Tauschobjekt. Es kann gegen einen Gegenstand mit gleicher Wertigkeit eingetauscht werden. Im Gegensatz zu vorherigen Tauschgegenständen, wie Nahrung, Werkzeugen und Kleidung ist Geld ein Tauschobjekt welches universell einsetzbar ist. </p>
+
+<p>Wohingegen vorherige Tauschobjekte meist Bedarfsgegenstände waren konnte man mit Geld andere Tauschpartner finden, welche das Geld wiederum für andere Gegenstände eintauschen konnten. <br/>Ein Käufer hatte somit mehr Abnehmer, was den globalen Handel insgesamt vorantrieb.<sup><a id="ffn4" href="#fn4" class="footnote">4</a></sup></p>
+
+<p>Für viele Jahrhunderte bestimmte der Rohstoff aus dem eine Münze gemacht wurde den Wert des Geldes, der als <em>innerer</em> oder <em>intrinsischer</em> Wert bekannt ist.<br/>Das Wertgeld wurde später aber durch sogenannte Fiat-Währungen ersetzt. Eine Fiat-Währung hat keinen Materiellen-Wert (stoffwertlos). Der Wert richtet sich nach der Akzeptanz und dem Vertrauen der Menschen in die jeweilige Währung und in den dahinter stehenden Staat.</p>
+
+<p><sup><a id="ffn5" href="#fn5" class="footnote">5</a></sup></p>
+
+<h4>Erste Kryptowährung</h4>
+
+<p>Im Jahr 2008 wurde unter dem Decknamen <em>Satoshi Nakamoto</em> ein Entwurf <sup><a id="ffn6" href="#fn6" class="footnote">6</a></sup> für ein „<em>Peer-to-Peer elektronisches Cash-System</em>” , unter dem Namen <em>Bitcoin</em> veröffentlicht. In dem Dokument beschreibt <em>Satoshi Nakamoto</em> eine Währung welche man sicher und ohne einen Mittelsmann, wie bspw. eine Bank, von einer Person zu einer anderen senden kann. </p>
+
+<p></p>
 
 <div class="block">
-	<span style="position: absolute; left: -42px; font-size: 120%; color: #bbb; border-radius: 50%; background-color: #eee; height: 24px; width: 24px; text-align: center; line-height: 24px; user-select: none;">i</span>
 	<p class="block-title">Satoshi Nakamoto</p>
 	<p>Bis heute ist nicht geklärt, wer sich hinter dem Pseudonym verbirgt. Es wird spekuliert, dass hinter <i>Satoshi Nakamoto</i> eine ganze Gruppe an Entwicklern steht.</p>
+<p><sup><a id="ffn7" href="#fn7" class="footnote">7</a></sup></p>
+
 </div>
-<h3>Kann Bitcoin eine bereits bestehende Währung ablösen?</h3>
+<p>In dem Entwurf beschreibt er nicht nur den Bitcoin sondern auch das System der <em>Blockchain</em>, einem dezentralem Netzwerk aus Rechnern, welche sämtliche Transaktionen protokollieren.</p>
 
-<h3>Welche unterschiede gibt es zur Physischen Währung?</h3>
+<p>Genau wie eine Fiat-Währung ist der Wert einer Kryptowährung abhängig von dem Vertrauen in jene Währung.<br/>Anders als aber bei einer Fiat-Währung, die von einer Zentralen Instanz (in der EU die Europäische Zentralbank — kurz EZB) unbegrenzt ausgegeben werden kann sind die meisten Kryptowährungen limitiert. Bei Bitcoin liegt dieses Limit bei 21 Millionen Bitcoins. <sup><a id="ffn8" href="#fn8" class="footnote">8</a></sup></p>
 
-<h3>Warum ist ein Bitcoin so teuer?</h3>
+<p>Neben dem Bitcoin gibt es viele tausende weitere Kryptowährungen, so genannte Altcoins (Alternative-Coins), welche alle mit unterschiedlichen Funktionen und Besonderheiten daher kommen. Bitcoin ist von alle denen — die Kryptowährung mit dem höchsten Marktkapitalisierung. Dies liegt wohl ausschlaggebend daran, dass es die erste seiner Art ist.</p>
 
-<ul>
-	<li>Preis Wahrnehmung</li>
-</ul>
+<p></p>
 
-<h3>Wie kann man Bitcoins bekommen</h3>
+<p></p>
 
-<ul>
-	<li>Börsen
+<p></p>
 
-		<ul>
-			<li>Was macht eine Börse</li>
-			<li>Coinbase</li>
-		</ul></li>
-	<li>Was bedeutet Mining?</li>
-</ul>
+<h4>Transaktionen</h4>
 
-<h3>Warum gibt es so viele Kryptowährungen</h3>
+<p>Was eine Kryptowährung nun so revolutionär macht ist der Fakt, dass bei einer Transaktion keinerlei Finanzinstitutionen nötig sind.</p>
 
-<h3>Wie kommt der Preis eines Bitcoins zu stande?</h3>
+<p>Konventionell ist eine Bank als Aufsichtsinstanz nötig, um bei einer Überweisung an eine andere Person dafür geradezustehen, dass die zu bezahlende Person genügend Geld hat. Für das Vertrauen, welches die Bank aufbringt, muss allerdings bezahlt werden. Es fallen Transaktionskosten (auch „Vertrauenskosten” gennant) an.</p>
+
+<p>Bei einer Kryptowährung ist dies nicht der Fall. Hier kommt das Vertrauen durch die Blockchain selbst. Das Geld wird, wenn den vorhanden sofort an die gewünschte Person übermittelt. Daher auch das „<em>Peer-to-Peer</em>”.</p>
+
+<hr />
 
 <h2>Blockchain</h2>
 
-<p>Klären wir zu beginn erst einmal was die Blockchain genau ist. </p>
+<p>Die <em>Blockchain</em> ist im einfachsten Sinne eine, über viele Teilnehmer (Nodes), verteilte Datenbank (zu engl.: „<em>distributed ledger</em>”). Man kann sie sich wie ein großes Buch vorstellen, in welchem man sämtlich Informationen zu allen jemals getätigten Zahlungen finden kann. <sup><a id="ffn9" href="#fn9" class="footnote">9</a></sup> <br/>Eine Blockchain muss aber nicht zwingend Transaktionen von Kryptowährungen beinhalten. So wird in einigen Unternehmen die Herkunft geförderter Rohstoffe, wie bspw. Diamanten in Blockchains verwaltet. <sup><a id="ffn10" href="#fn10" class="footnote">10</a></sup></p>
 
-<p>Die Blockchain ist im einfachsten Sinne eine, über viele Teilnehmer, verteilte Datenbank. </p>
+<p>In einigen Medien werden die Begriffe Blockchain und Bitcoin häufig miteinander vermischt. Es ist wichtig die beiden Begriffe klar zu differenzieren. Bitcoins sind lediglich die Daten die in der Bitcoin-Blockchain gespeichert werden. </p>
 
-<p><a href="https://www.mckinsey.com/~/media/McKinsey/Business%20Functions/McKinsey%20Digital/Our%20Insights/Blockchain%20explained%20What%20it%20is%20and%20isnt%20and%20why%20it%20matters/Blockchain-explained-What-it-is-and-isnt.ashx" title="Blockchain Explained - What it is and isn’t - McKinsey &amp; Company [September 2018]">Blockchain explained: What it is and isn’t, and why it matters</a></p>
+<p></p>
 
-<p>In den Medien wird Blockchain und Bitcoin häufig zu einem vermischt. Es ist hier aber eine Strikte Trennung zu machen. Die Blockchain ist das Verwaltungsbuch in welchem alle Transaktionen, der digitalen Währung eingetragen werden.</p>
+<p>Das besondere an einer Blockchain ist, dass jeder Teilnehmer (<em>Node</em>) selber Buch, zu allen durchgeführten Transaktionen führt und so bei jeder neuen Transaktion die anderen Nodes im Netzwerk auf ihre Richtigkeit kontrolliert. Desto mehr Nodes in einem Netzwerk sind desto sicherer ist es, da es mehr Nodes gibt die einander kontrollieren.</p>
 
-<p>Kryptowährungen sind nur ein kleiner Teil von dem was man mit einer Blockchain verwalten kann. In einer Blockchain können jegliche Art von Daten gespeichert werden. Einige Beispiele in denen eine Blockchain zum Einsatz kommt sind:</p>
+<p>Stimmt in einem Buch (Node) ein Wert nicht mit dem einer anderen Node überein so wird… </p>
+
+<p>Die Größe der Bitcoin-Blockchain beträgt <a href="https://www.blockchain.com/charts/blocks-size"><span id="blockchainSize"></span></a>.<sup><a id="ffn11" href="#fn11" class="footnote">11</a></sup></p>
+
+<h4>Aufbau der Blockchain</h4>
+
+<p>Die zu speichernde Information, einer Blockchain, werden in einzelnen Paketen, so genannten <strong>Blöcken</strong> gespeichert. Jeder Block hat eine eindeutige Identifikationsnummer, der <strong>Hash</strong> eines Blockes.</p>
+
+<p></p>
+
+<p>Möchte ein Nutzer eine Transaktion ausführen so wird zunächst eine Anfrage an das Blockchain-Netzwerk gestellt. In einem Prozess namens <a href="#mining"><em>Mining</em></a> überprüfen nun sämtliche Nodes im Netzwerk die Validität dieser Anfrage. Hat der Nutzer genügt Geld zur Verfügung wird diese Transaktion als Block an die bereits bestehende Blockchain angehangen und die Transaktion ist vollendet.</p>
+
+<h4>Kryptographie </h4>
+
+<p>Bevor wir uns mit dem <em>Mining</em>, also dem Validierungsprozess beschäftigen können ist es wichtig die unterschiedlichen Validierungsmethoden kennen zu lernen.</p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<h4>Mining</h4>
+
+<ul>
+	<li>Grund für die Sicherheit</li>
+</ul>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<h4>Beispielimplemntierung</h4>
+
+<h4>Probleme</h4>
+
+<ul>
+	<li>Scalebility Problem</li>
+	<li>Double Spending</li>
+	<li>Angriffsmöglichkeiten
+
+		<ul>
+			<li>Wallet geht verloren</li>
+			<li>Wallet Zugangsdaten werden geklaut / unsicher</li>
+			<li>Kann man die Blockchain manipulieren. Wenn ja mit welchem aufwand?</li>
+			<li>Gab es bereits manipulations versuche.</li>
+		</ul></li>
+</ul>
+
+<h4>Anwendungsmöglichkeiten</h4>
+
+<ul>
+	<li>Experiment / Startups</li>
+	<li>Internet -&gt; Blockstack siehe Talk (<a href="https://youtu.be/taG-1p-UNC0?t=1250">https://youtu.be/taG-1p-UNC0?t=1450</a>)</li>
+	<li>Filecoin</li>
+</ul>
+
+<p>In einer Blockchain können jegliche Art von Daten gespeichert werden. Einige Beispiele in denen eine Blockchain zum Einsatz kommt sind:</p>
 
 <ul>
 	<li>Chat Anwendungen</li>
-	<li>Grundstückbesitztümer</li>
-</ul>
-
-<p>Fee = Paying for Trust</p>
-
-<p>„Trustless“ = Es wird keine Autorität benötigt die den Besitz des Geldes bestätigen muss, wie bspw. eine Bank.</p>
-
-<ul>
+	<li>Grundstücksbesitztümer</li>
 	<li>cryptographically secure database</li>
 	<li>private / public key infastructure</li>
 	<li>desto mehr Server vorhanden desto sicherer?</li>
 	<li>Speicherung / Speicherplatz</li>
 </ul>
 
-<figure><img src="Bildschirmfoto%202020-06-03%20um%2013.00.21.png"/></figure>
+<p></p>
 
-<h3>Aufbau der Blockchain</h3>
+<hr />
 
-<p>Die zu speicherende Information wird in einzelnen Paketen, so genannten <strong>Blöcken</strong> gespeichert. Jeder Block hat eine eindeutig referenzierbare Identifikationsnummer.</p>
+<h2>Kryptowährungen</h2>
 
-<h3>Wie ist ein Bitcoin Paket strukturiert?</h3>
+<p></p>
 
-<h3>Scalebility Problem</h3>
+<p></p>
 
-<h3>Welche Angriffspunkte gibt es?</h3>
+<p></p>
 
-<ul>
-	<li>Wallet geht verloren</li>
-	<li>Wallet Zugangsdaten werden geklaut / unsicher</li>
-	<li>Kann man die Blockchain manipulieren. Wenn ja mit welchem aufwand?</li>
-	<li>Gab es bereits manipulations versuche.</li>
-</ul>
+<p></p>
 
-<h2>Beispielimplemntierung</h2>
+<h4>Wie ist ein Bitcoin Paket strukturiert?</h4>
+
+<h4>Exchanges</h4>
+
+<h4>Mining Pool</h4>
+
+<hr />
 
 <h2>Schlusswort</h2>
 
-<h3>Welche anderen Einsatzgebiete gibt es für Blockchains?</h3>
+<p></p>
 
-<h3>Was für folgen hat die Anonymität?</h3>
+<p>Die Anonymität bringt aber auch seine Schattenseiten mit sich. Im Darknet wurde so das kaufen illegaler Waren deutlich vereinfacht, da eine Rückverfolgung der Käufer nur schwer möglich ist.</p>
+
+<p>Was für folgen hat die Anonymität?</p>
 
 <ul>
-	<li>Darknet</li>
+	<li>Darknet </li>
 	<li>Illegale aktivitäten</li>
 </ul>
 
+<div class="block">
+	<p class="block-title">Was ist das <i>Darknet</i>?</p>
+	<p></p>
+<p><sup><a id="ffn12" href="#fn12" class="footnote">12</a></sup></p>
+
+</div>
+<hr />
+
+<h2>Stichwortverzeichnis</h2>
+
+<hr />
+
 <h2>Quellenverzeichnis</h2>
+
+<blockquote>
+<p>Das Dokument habe ich mit dem Programm <a href="https://ulysses.app/">Ulysses</a> generiert. Die unterliegende CSS Datei, habe ich an meine Bedürfnisse angepasst und kann in dem <a href="https://bitbucket.org/KuhlTime/sin-ausarbeitung/">Repository</a>, für meine Ausarbeitung, angesehen werden.</p>
+
+<p>Einige Wert </p>
+</blockquote>
 
 <script>
 /* Preferences */
@@ -151,7 +251,9 @@ let blacklist = [
 var headers = []
 
 window.onload = function() {
+	loadLastUpdatedBitbucket('kuhltime', 'sin-ausarbeitung')
   	generateTableOfContent()
+	loadBitcoinBlockchainSize()
 }
 
 
@@ -165,6 +267,8 @@ function loadLastUpdatedBitbucket(user, repo) {
 		.then(data => { 
 			let updated = new Date(data.updated_on)
 
+			console.log(data)
+
 			let options = { 
 				year: 'numeric', 
 				month: 'long', 
@@ -173,7 +277,12 @@ function loadLastUpdatedBitbucket(user, repo) {
 	
 			$field.innerHTML = updated.toLocaleDateString('de-DE', options)
 		})
-		.catch(error => { $field.innerHTML = error.message })
+		.catch(error => { 
+			$field.innerHTML = 'Repository is Marked Private'
+			$field.style.color = '#FD2220'
+			console.error(error)
+			console.error('The is unavailable or marked as private')
+		})
 }
 
 function generateTableOfContent() {
@@ -231,6 +340,29 @@ function generateTableOfContent() {
   $toc.innerHTML = html
 }
 
+function loadBitcoinBlockchainSize() {
+	let url = 'https://api.blockchain.info/charts/blocks-size?timespan=30days&sampled=true&metadata=false&cors=true&format=json'
+	let $field = document.getElementById('blockchainSize')
+
+	fetchAsync(url)
+		.then(data => { 
+			let newest = data.values.slice(-1)[0]
+			let date = new Date(newest.x * 1000)
+
+			let sizeGB = Math.round(newest.y / 1000);
+	
+			let dateString = date.toLocaleDateString('de-DE')
+
+			$field.innerHTML = `${sizeGB} GB [Stand: ${dateString}]`
+		})
+		.catch(error => { 
+			$field.innerHTML = 'Fehler: 282GB [Stand: 13.6.2020]'
+			$field.style.color = '#FD2220'
+			console.error(error)
+			console.error('The is unavailable or marked as private')
+		})
+}
+
 function getHeaders(min, max) {
   var tagNames = ''
   var i = min
@@ -273,10 +405,30 @@ async function fetchAsync (url) {
 <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$']]}});</script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=default' async></script>
 <ol id="footnotes">
-	<li id="fn1">finanzen.net. (2020). Entwicklung des Bitcoin-Kurses von Januar 2017 bis Juni 2020 (in Euro). Statista. Statista GmbH. Zugriff: 11. Juni 2020. 
+	<li id="fn1">finanzen.net. (2020). Entwicklung des Bitcoin-Kurses von Januar 2017 bis Juni 2020 (in Euro). Statista. Statista GmbH. Zugriff: 11. Juni 2020. <br/><a href="https://de.statista.com/statistik/daten/studie/781906/umfrage/kursentwicklung-des-bitcoin-gegenueber-dem-euro/">https://de.statista.com/statistik/daten/studie/781906/umfrage/kursentwicklung-des-bitcoin-gegenueber-dem-euro/</a> <a href="#ffn1">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn2">Beattie, A. (2019): The History of Money: From Barter to Banknotes. Investopedia. Zugriff: 12.6.2020
 
-		<p><a href="https://de.statista.com/statistik/daten/studie/781906/umfrage/kursentwicklung-des-bitcoin-gegenueber-dem-euro/">https://de.statista.com/statistik/daten/studie/781906/umfrage/kursentwicklung-des-bitcoin-gegenueber-dem-euro/</a> <a href="#ffn1">&#8617;</a></p>
+		<p><a href="">https://www.investopedia.com/articles/07/roots_of_money.asp</a> <a href="#ffn2">&#8617;</a></p>
 	</li>
+	<li id="fn3">Reich Krösus. Aber wie reich war Krösus eigentlich? (2017): in: redensarten.net. Zugriff: 12.06.2020.<br/><a href="">https://www.redensarten.net/kroesus/</a> <a href="#ffn3">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn4">Eigenschaft des Geldes (2016). Projektarbeit der Oberstufe des Beruflichen Gymnasium Kiel. Zugriff: 12.06.2020<br/><a href="http://www.berufliches-gymnasium-kiel.de/VWLProjekt/merkmale-des-geldes">http://www.berufliches-gymnasium-kiel.de/VWLProjekt/merkmale-des-geldes</a> <a href="#ffn4">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn5"><p><a href="#ffn5">&#x21A9;&#xFE0E;</a></p></li>
+	<li id="fn6">Nakamoto, S. (2008): Bitcoin: A Peer-to-Peer Electronic Cash System. Bitcoin.org. Zugriff: 10.6.2020
+
+		<p><a href="">https://bitcoin.org/bitcoin.pdf</a> <a href="#ffn6">&#8617;</a></p>
+	</li>
+	<li id="fn7">Kenton, W. (2020): Satoshi Nakamoto. Bitcoin.org. Zugriff: 13.6.2020
+
+		<p><a href="">https://www.investopedia.com/terms/s/satoshi-nakamoto.asp</a> <a href="#ffn7">&#8617;</a></p>
+	</li>
+	<li id="fn8">Limitierte Anzahl von Bitcoins <a href="#ffn8">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn9">Higginson, M. und London, S. (2018): Blockchain explained: What it is and isn&#39;t, and why it matters. McKinsey. Zugriff: 7.6.2020
+
+		<p><a href="">https://www.mckinsey.com/business-functions/mckinsey-digital/our-insights/blockchain-explained-what-it-is-and-isnt-and-why-it-matters</a> <a href="#ffn9">&#8617;</a></p>
+	</li>
+	<li id="fn10"><p><a href="#ffn10">&#x21A9;&#xFE0E;</a></p></li>
+	<li id="fn11">Blockchain.com (2020). Blockchain Charts API. Blockchain-Größe (MB). Verwendete API für Live Daten. <a href="">https://api.blockchain.info/charts/blocks-size?timespan=30days&amp;sampled=true&amp;metadata=false&amp;cors=true&amp;format=json</a>. <a href="#ffn11">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn12"><p><a href="#ffn12">&#x21A9;&#xFE0E;</a></p></li>
 </ol></body>
 </html>
 

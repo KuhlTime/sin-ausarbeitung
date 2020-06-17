@@ -1,4 +1,4 @@
-/*
+h1/*
 	Georgia
 
 	Demo css to show basic, blog-like styling
@@ -80,8 +80,27 @@ iframe a::before {
 	color: #444;
 }
 
+.block::before {
+	content: 'i';
+	position: absolute; 
+	left: -38px; 
+	font-size: 120%; 
+	color: #bbb; 
+	border-radius: 50%; 
+	background-color: #eee; 
+	height: 24px; 
+	width: 24px; 
+	text-align: center; 
+	line-height: 24px; 
+	user-select: none;
+}
+
 .block > p {
 	margin: 0;
+}
+
+.block > p:not(.block-title) {
+	display: inline;
 }
 
 .block-title {
@@ -93,6 +112,12 @@ iframe a::before {
 	border-bottom: 1px solid #DDD;
 }
 
+input[type="text"] {
+	border: none;
+	color: #FD2220;
+	font-size: 90%;
+}
+
 /* ========= */
 
 strong {
@@ -100,7 +125,7 @@ strong {
 }
 
 h1 {
-	font-size:   300%;
+	font-size:   200%;
 	line-height: 1.2;
 	font-style:  normal;
 	margin:      1.5em 0 1em;
@@ -108,7 +133,7 @@ h1 {
 
 h2 {
 	font-weight: bold;
-	font-size:   200%;
+	font-size:   175%;
 	line-height: 140%;
 	margin:      1.5em 0 0.75em;
 }
@@ -116,14 +141,14 @@ h2 {
 h3 {
 	font-weight:    normal;
 	text-transform: uppercase;
-	font-size:      150%;
+	font-size:      120%;
 	letter-spacing: 0.15em;
 	margin:         1.75em 0 0.75em;
 }
 
 h4 {
 	font-weight:    normal;
-	font-size:      150%;
+	font-size:      120%;
 	letter-spacing: 0.1em;
 	margin:         1.5em 0 0.75em;
 }
