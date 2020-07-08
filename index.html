@@ -166,15 +166,13 @@ signatur <span class="syntax-all syntax-keyword">=</span> <span class="syntax-al
 
 <p>In all meinen Code Snippets werde ich die Python Kryptographie Bibliothek „<a href="https://pypi.org/project/pycrypto/">pycrypto</a>” verwenden, da sie eine große Nutzerbasis aufweist und ziemlich einfach zu verwenden ist. Generell sollte man, beim Thema Sicherheit, allerdings vorsichtig sein welchen Code oder welche Bibliothek man verwendet. Die „pycrypto” Bibliothek scheint sehr akzeptiert zu sein, zeigt aber seid einigen Jahren keine Aktivität mehr auf. <a href="https://github.com/pycrypto/pycrypto">GitHub</a></p>
 
-<h5>Public-Private-Key</h5>
+<h5>Public-Key Verfahren</h5>
 
-<p>Das Public-Private-Key Verfahren ist ein Verschlüsslungsverfahren das Nachricht durch das generieren eines Schlüsselpaares verschlüsselt. <br/>Für dieses Verfahren werden zwei Schlüssel ein <!--<img class="icon" src="https://img.icons8.com/fluent/72/grand-master-key.png">--> <em>privater</em> und ein <!--<img class="icon" src="https://img.icons8.com/fluent/72/key-security.png">--> <em>öffentlicher</em> Schlüssel generiert.</p>
+<p>Das Public-Key Verfahren ist ein Verschlüsslungsverfahren das Nachricht durch das generieren eines Schlüsselpaares verschlüsselt. <br/>Für dieses Verfahren werden zwei Schlüssel ein <img class="icon" src="https://img.icons8.com/fluent/72/grand-master-key.png"> <em>privater</em> und ein <img class="icon" src="https://img.icons8.com/fluent/72/key-security.png"> <em>öffentlicher</em> Schlüssel generiert.</p>
 
-<p>Wie die Namen bereits andeuten ist der <!--<img class="icon" src="https://img.icons8.com/fluent/72/grand-master-key.png">--> Privat-Key unter allen umständen für sich zu behalten. Er ist der Master-Key aus welchem sich dann der öffentliche Schlüssel ableiten lässt.</p>
+<p>Wie die Namen bereits andeuten ist der Privat-Key unter allen umständen für sich zu behalten. Er ist der Master-Key aus welchem sich dann der öffentliche Schlüssel ableiten lässt.</p>
 
-<p>Man spricht von einem <em>asymmetrischen</em> Verschlüsselungsverfahren.</p>
-
-<p></p>
+<p>Man spricht von einem <em>asymmetrischen</em> Verschlüsselungsverfahren. Da die beiden Kommunikationsteilnehmer keinen gemeinsamen, geheimen Schlüssel benötigen. </p>
 
 <p>Der Private Schlüssel ist eine zufällige Abfolge an Zeichen. Für das <em>RSA-Kryptosystem</em> kommen Schlüssel mit einer Länge von 256 <a href="#keyword-byte">Bytes</a> oder 512 <a href="#keyword-byte">Bytes</a> zum Einsatz.</p>
 
@@ -207,11 +205,32 @@ signatur <span class="syntax-all syntax-keyword">=</span> <span class="syntax-al
 
 <h6>Keypair Generieren</h6>
 
-<p>Für die Erstellung des privaten Schlüssel wird ein Zufallswert benötigt. Man kann dies durch das werfen einer Münzen auf ein Blatt Papier machen. Wer allerdings nicht 2048 (RSA) mal die Münze (0 oder 1) werfen möchte, der sollte sich diesen Zufallswert mit dem Computer generieren lassen.<br/>Jedoch haben Computer, mit ihren sonst so vorhersehbareren Programmabläufen so ihre Probleme eine Zufallszahl zu generieren, weswegen die Generatoren auch <em>Pseudo Random Number Generators</em> (kurz PRNG) gennant werden.<br/>Aus einem Startwert „generieren” bzw. berechnen die Algorithmen jedes mal einen neuen Zufallswert, welcher dann wieder für den nächsten Zufallswert verwendet wird. Nach einer gewissen Periode wiederholen sich diese Zahlen weswegen es sich um einen <em>Deterministischen</em> Zufallsgenerator handelt. </p>
+<p>Für die Erstellung des privaten Schlüssel wird ein Zufallswert benötigt. Man kann dies durch das werfen einer Münzen auf ein Blatt Papier machen. Wer allerdings nicht 2048 (RSA) mal die Münze (0 oder 1) werfen möchte, der sollte sich diesen Zufallswert mit dem Computer generieren lassen.<br/>Jedoch haben Computer, mit ihren sonst so vorhersehbareren Programmabläufen so ihre Probleme eine Zufallszahl zu generieren, weswegen die Generatoren auch <em>Pseudorandom Number Generators</em> (kurz PRNG) gennant werden.<br/>Aus einem Startwert <em>Seed</em> „generieren” bzw. berechnen die Algorithmen jedes mal einen neuen Zufallswert, welcher dann wieder für den nächsten Zufallswert verwendet wird. Nach einer gewissen Periode wiederholen sich diese Zahlen weswegen es sich um einen <em>Deterministischen</em> Zufallsgenerator handelt. Dies generierten Zahlen sehen nur Zufällig aus. Bis sie sich wiederholen → <em>Pseudo</em>. <sup><a id="ffn19" href="#fn19" class="footnote">19</a></sup></p>
 
 <figure><img src="PRNG.png"/></figure>
 
-<p><sup><a id="ffn19" href="#fn19" class="footnote">19</a></sup></p>
+<p><em>Nicht deterministisch</em> werden vom Computer generierte Zahlen erst wenn ein äusserer Einfluss als Zufallsquelle mit einbezogen wird. Ein nicht deterministischer Zufallszahlengenerator gilt dann als „kryptographisch”. <br/>Einige mögliche Bezugsquellen für in Betriebssystemen sind <sup><a id="ffn20" href="#fn20" class="footnote">20</a></sup>:</p>
+
+<ul>
+	<li>Radioaktiverzerfall</li>
+	<li>Rauschen
+
+		<ul>
+			<li>Wärmerauschen</li>
+			<li>Akustisches Rauschen (Mikrofon)</li>
+			<li>Optisches Rauschen (Kamera)</li>
+		</ul></li>
+	<li>Nutzereingaben
+
+		<ul>
+			<li>Mausbewegung</li>
+			<li>Tastatureingaben</li>
+		</ul></li>
+</ul>
+
+<p></p>
+
+<p></p>
 
 <p></p>
 
@@ -586,8 +605,12 @@ async function fetchAsync (url) {
 		<p><a href="">https://www.youtube.com/watch?v=GSIDS_lvRv4</a> <a href="#ffn17">&#8617;</a></p>
 	</li>
 	<li id="fn18">??? <a href="#ffn18">&#x21A9;&#xFE0E;</a></li>
-	<li id="fn19"><p><a href="#ffn19">&#x21A9;&#xFE0E;</a></p></li>
-	<li id="fn20">??? <a href="#ffn20">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn19">??? <a href="#ffn19">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn20">Cellio, M. (2014): How does an operating system create entropy for random seeds?. Computer Science Stack Exchange. Zugriff: 8.7.2020
+
+		<p><a href="">https://cs.stackexchange.com/a/29881/123292</a> <a href="#ffn20">&#8617;</a></p>
+	</li>
+	<li id="fn21">??? <a href="#ffn21">&#x21A9;&#xFE0E;</a></li>
 </ol></body>
 </html>
 
