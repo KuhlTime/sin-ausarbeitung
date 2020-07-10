@@ -50,7 +50,7 @@ a {
 
 /* Animation */
 
-a::before {
+/*a::before {
 	content: 			"";
 	position: 			absolute;
 	width: 				100%;
@@ -67,6 +67,20 @@ a::before {
 a:hover::before {
 	visibility: visible;
 	transform: scaleX(1);
+}*/
+
+a {
+		color: #FD2220;
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size .3s;
+}
+
+a:hover, a:focus {
+    background-size: 100% 1px;
 }
 
 iframe {
