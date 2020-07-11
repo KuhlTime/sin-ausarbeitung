@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+<body>
+<figure><img src="Header.svg"/></figure>
+
+<h1>Die Funktionsweise einer Kryptowährung</h1>
+
+<h3>Ausarbeitung für Sicherheit in Netzen</h3>
+
+<figure><img src="Profile.png"/></figure>
+
+<ul>
+	<li>Name: <strong>André Kuhlmann</strong></li>
+	<li>Matrikelnummer: <strong>779690</strong></li>
+	<li>Fachbereich: <strong>Elektro- und Informationstechnik <br/>Hochschule Düsseldorf</strong></li>
+	<li>Erstellt: <strong>1. Juni 2020</strong></li>
+</ul>
+
+<h2>Inhaltsverzeichnis</h2>
+
+<div id="toc"></div>
+<hr />
+
+<h2>Einleitung</h2>
+
+<p>Der Traum vom vielen Geld. Für einige ist dies, im Dezember 2017, Realität geworden, als der Bitcoin sein Allzeithoch von 11.236€ <sup><a id="ffn1" href="#fn1" class="footnote">1</a></sup> erreichte. </p>
+
+<p>Das viele Geld kann ich mit meiner Ausarbeitung nicht versprechen, hoffe jedoch, mit meiner Ausarbeitung das komplexe Thema der Kryptowährungen und der Blockchain verständlicher zu machen.</p>
+
+<p>Der Grund, weshalb ich mich für dieses Thema entschieden habe, ist, dass ich mich bereits häufiger mit dem Thema Kryptowährungen beschäftigt habe — nie aber tiefer in die Funktionsweise eingetaucht bin.</p>
+
+<p>Aufgrund dessen, dass es sich um das Modul <em>Sicherheit in Netzen</em> handelt, in welchem diese Ausarbeitung entstehen soll, werde ich mich, nach einigen Grundlagen, eingehend mit der <strong>Struktur</strong> und der damit einhergehenden <strong>Sicherheit</strong> einer Blockchain beschäftigen.</p>
+
+<hr />
+
+<h2>Grundlagen</h2>
+
+<h3>Geld und Währungen</h3>
+
+<p>Die erste Währung wurde etwa 600 vor Christus <sup><a id="ffn2" href="#fn2" class="footnote">2</a></sup> in Lydien, der heutigen Türkei, von dem damaligen König Alyattes dem II ausgestellt.</p>
+
+<div class="block">	
+	<p class="block-title">„Bin ich Krösus?”</p>
+	<p>König Alyattes der II ist nicht nur Vater der ersten Geldmünzen sondern auch Vater seines später geborenen Sohnes <i>Krösus</i>. <i>Krösus</i> erlangte durch die Münzpregung und Tributzahlungen ein Vermögen, weswegen noch heute der Satz „Bin ich Körsus?” bekannt ist.
+</p>
+<p><sup><a id="ffn3" href="#fn3" class="footnote">3</a></sup></p>
+
+</div> 
+<p>Geld ist ein Tauschobjekt. Es kann gegen einen Gegenstand mit gleicher Wertigkeit eingetauscht werden. Im Gegensatz zu vorherigen Tauschgegenständen, wie Nahrung, Werkzeugen und Kleidung ist Geld ein Tauschobjekt welches universell einsetzbar war. </p>
+
+<p>Wohingegen vorherige Tauschobjekte meist Bedarfsgegenstände waren konnte man mit Geld viel mehr Tauschpartner finden, welche das Geld wiederum für andere Gegenstände eintauschen konnten. Ein Käufer hatte somit mehr Abnehmer, was den globalen Handel insgesamt vorantrieb. <sup><a id="ffn4" href="#fn4" class="footnote">4</a></sup></p>
+
+<p>Für viele Jahrhunderte bestimmte der Rohstoff aus dem eine Münze gemacht wurde, den Wert des Geldes, der als <em>innerer</em> oder <em>intrinsischer</em> Wert bekannt ist.<br/>Das Wertgeld wurde später aber durch sogenannte Fiat-Währungen ersetzt. Eine Fiat-Währung hat keinen Materiellen-Wert, es ist „stoffwertlos”. Der Wert richtet sich einzig und allein nach der Akzeptanz und dem Vertrauen der Menschen in die jeweilige Währung und in dem dahinter stehenden Staat.</p>
+
+<p><sup><a id="ffn5" href="#fn5" class="footnote">5</a></sup></p>
+
+<h3>Erste Kryptowährung</h3>
+
+<p>Im Jahr 2008 wurde unter dem Decknamen <em>Satoshi Nakamoto</em> ein Entwurf <sup><a id="ffn6" href="#fn6" class="footnote">6</a></sup> für ein „<em>Peer-to-Peer elektronisches Cash-System</em>”, unter dem Namen <em>Bitcoin</em> veröffentlicht. In dem Dokument beschreibt <em>Satoshi Nakamoto</em> eine Währung welche man sicher und ohne einen Mittelsmann, wie beispielsweise eine Bank, von einer Person zu einer anderen senden kann. </p>
+
+<div class="block">
+	<p class="block-title">Satoshi Nakamoto</p>
+	<p>Bis heute ist nicht geklärt, wer sich hinter dem Pseudonym verbirgt. Es wird spekuliert, dass hinter <i>Satoshi Nakamoto</i> eine ganze Gruppe an Entwicklern steht.</p>
+<p><sup><a id="ffn7" href="#fn7" class="footnote">7</a></sup></p>
+
+</div>
+<p>In dem Entwurf beschreibt er nicht nur den Bitcoin sondern auch das System der <em>Blockchain</em>, einem dezentralem Netzwerk aus Rechnern, welches sämtliche Transaktionen protokolliert und transparent zugänglich macht.</p>
+
+<p>Genau wie eine Fiat-Währung ist der Wert einer Kryptowährung abhängig von dem Vertrauen in jene Währung.<br/>Anders als bei einer Fiat-Währung, die von einer Zentralen Instanz (in der EU die Europäische Zentralbank — kurz EZB) unbegrenzt ausgegeben werden kann, sind die meisten Kryptowährungen limitiert. Bei Bitcoin liegt dieses Limit bei 21 Millionen Bitcoins. <sup><a id="ffn8" href="#fn8" class="footnote">8</a></sup></p>
+
+<p>Neben dem Bitcoin gibt es viele tausende weitere Kryptowährungen, so genannte Altcoins (Alternative-Coins), welche alle mit unterschiedlichen Funktionen und Besonderheiten einher gehen. Bitcoin ist von allen, die Kryptowährung mit der höchsten Marktkapitalisierung. Dies liegt wohl ausschlaggebend daran, dass es die erste Kryptowährung war.</p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<h3>Transaktionen</h3>
+
+<p>Was eine Kryptowährung nun so revolutionär macht, ist der Fakt, dass bei einer Transaktion keinerlei Finanzinstitutionen nötig sind.</p>
+
+<p>Bei einer konventionellen Banküberweisung werden sämtliche Anfragen von einer einzelnen Instanz gesteuert und geregelt. Dieser Ansatz setzt ein hohes Maß an Sicherheit voraus, da potentielle Angreifer lediglich diesen einen Punkt attackieren müssen, um Zugriff zum Zahlungsverkehr zu erhalten. Aufgrund der hohen Sicherheitsanforderungen kann nicht einfach der Nutzer eine neue Transaktion in dem System auslösen. Dafür sorgen die Banken. Dadurch das viele dieser Systeme manuelle Nutzereingaben benötigen, ist das Überweisen fehleranfällig und zeitintensiv. <sup><a id="ffn9" href="#fn9" class="footnote">9</a></sup> Dieser Ansatz wird auch als <em>zentralisiertes System</em> (engl.: „<em>centralised ledger</em>”) bezeichnet.</p>
+
+<p>Ihm gegenüber steht das <em>verteilte System</em> (engl.: „<em>distributed ledger</em>”). In diesem Model wird das Kassenbuch über alle Teilnehmer (Nodes) hinweg verteilt, jeder besitzt eine vollständige Historie über getätigte Transaktionen. Dies macht es Angreiferen deutlich schwerer, da es nicht mehr einen zentralen Angriffspunkt gibt sondern direkt hunderte oder tausende Teilnehmer angegriffen werden müssten. Desto mehr Teilnehmer es gibt, desto sicherer gilt ein solches Netzwerk.</p>
+
+<figure><img src="Transaktions%20Systeme.png" alt="(Tripoli und Schmidhuber, 2018)" title="Zentrales und Verteilte Bezahlungssysteme"/><figcaption>(Tripoli und Schmidhuber, 2018)</figcaption></figure>
+
+<p>Nun allerdings — da es keine zentrale Instanz mehr gibt die über den Konsens in einem Netzwerk entscheidet muss ein anderer Weg gefunden werden. Genau dort kommt die Blockchain zum Einsatz.</p>
+
+<hr />
+
+<h2>Kryptographie</h2>
+
+<p>Bevor wir uns die Blockchain anschauen, müssen wir uns mit der Kryptographie, die für die Blockchain essentiell ist, vertraut machen.</p>
+
+<p>Kryptographie kommt von dem altgriechischen Wort „kryptós”, zu Deutsch „verborgen” oder „geheim”. In der Informatik beschreibt dies, das Verschlüsseln, Verunkenntlichen oder Verifizieren von Informationen. <sup><a id="ffn10" href="#fn10" class="footnote">10</a></sup></p>
+
+<p><br/>Eben diese Webseite, auf der Sie sich befinden wurde verschlüsselt über das Internet gesendet und nur Ihnen als Leser dieser Webseite war es möglich den Inhalt zu lesen.</p>
+
+<p>Ein kryptographischer Algorithmus kann dabei ein einfaches Vertauschen von Buchstaben bis hin sehr zu sehr komplexen Verkettungen von Funktionen sein.</p>
+
+<h3>Kryptographische Hashfunktionen</h3>
+
+<p>Eine Hashfunktion wandelt einen beliebigen Input (<em>Schlüssel</em>) in einen abbildenden Output, genant <em>Hash</em> oder <em>Signatur</em> um. Der selbe Input erschafft dabei immer den selben Hash. </p>
+
+<p>In dem nachfolgenden Playground können Sie das Generieren eines Hashes austesten. <br/>Indem Sie einen Text in das vorhandene Textfeld eingeben wird im Hintergrund der dazu gehörige Hash-Code berechnet und ausgegeben.</p>
+
+<iframe width="100%" height="300" src="https://jsfiddle.net/KuhlTime/814zj6yu/show" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0" style="overflow: hidden;"></iframe>
+<p></p>
+
+<p>In dem Playground habe ich den <em>SHA256</em> (<em>Secure Hash Algorithm</em>) Algorithmus verwendet. Die 256 steht dabei für die Anzahl an <a href="#keyword-bit">Bits</a> (die Länge des Hashes). Für den Hash gibt es also genau $2^{256}$ Möglichkeiten. </p>
+
+<p>„<em>Kryptographische</em>” Hashfunktionen müssen folgende Eigenschaften erfüllen:</p>
+
+<ul>
+	<li>Sie müssen <strong>irreversibel</strong> sein. Sie dürfen also keinen Aufschluss über den Eingangs verwendeten Schlüssel (Input) geben. Eine solche Funktion wird als <em>Falltür-Funktion</em> oder auch als <em>Einwegfunktion</em> bezeichnet. </li>
+	<li>Sie müssen <strong>kollisionsfrei</strong> sein. Eine <em>kryptographische</em> Hashfunktion gilt als kollisionsfrei, wenn es nicht möglich ist mit zwei verschiedenen Inputs den selben Hash wert zu erhalten.</li>
+</ul>
+
+<p>Der SHA256 ist die zweite Version des Secure Hash Algorithm. Die erste Version wurde im August 2005 von einigen Wissenschaftlern der Shandong Universität in China gebrochen. <sup><a id="ffn11" href="#fn11" class="footnote">11</a></sup> Sie haben einen Weg gefunden, in absehbarer Zeit eine identische Signatur zu einem anderen Dokument zu berechnen. Ein solche Attacke wird <em>Kollisionsangriff</em> genant.</p>
+
+<div class="block">
+	<p class="block-title">Herkunft</p>
+	<p>Der <i>Simple Hashing Algorithm</i> wurde ursprünglich von der NSA entwickelt.</p><br>
+<p><sup><a id="ffn12" href="#fn12" class="footnote">12</a></sup></p>
+
+</div>
+<p>In Python, einer Programmiersprache, die gerade unter Wissenschaftlern eine hohe Akzeptanz wegen ihrer Einfachheit und Übersichtlichkeit gefunden hat, könnte eine Signatur wie folgt erstellt werden:</p>
+
+<pre><code class="code-highlighted code-python"><span class="syntax-all syntax-keyword">from</span> Crypto.Hash <span class="syntax-all syntax-keyword">import</span> <span class="syntax-all syntax-constant">SHA256</span>
+
+daten <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-keyword">b</span><span class="syntax-all syntax-string">&quot;Hello World!&quot;</span>
+
+<span class="syntax-all syntax-constant">hash </span><span class="syntax-all syntax-keyword">=</span> SHA256.new()
+<span class="syntax-all syntax-constant">hash</span>.update(daten)
+signatur <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-constant">hash</span>.hexdigest()
+
+<span class="syntax-all syntax-constant">print</span>(signatur)</code></pre>
+
+<p>Unter folgender Adresse können Sie mit diesem Code Ihre eigenen Experimente machen: <a href="https://repl.it/@KuhlTime/Hash-Function-Playground">Hash-Function-Playground</a></p>
+
+<p>In all meinen Code Snippets werde ich die Python Kryptographie Bibliothek „<a href="https://pypi.org/project/pycrypto/">pycrypto</a>” verwenden, da sie eine große Nutzerbasis aufweist und ziemlich einfach zu verwenden ist. Generell sollte man, beim Thema Sicherheit vorsichtig sein, welchen Code oder welche Bibliothek man verwendet. Die „pycrypto” Bibliothek scheint sehr akzeptiert zu sein, zeigt aber seit einigen Jahren keine Aktivität mehr auf. <br/><a href="https://github.com/pycrypto/pycrypto">GitHub</a></p>
+
+<h3>Asymmetrische Kryptographie</h3>
+
+<p>Die asymmetrische Kryptographie ist ein Verschlüsslungsverfahren welches zwei verschieden Schlüssel zum Verschlüsseln einer Nachricht verwendet. <br/>Für dieses Verfahren wird ein <img class="icon" src="https://img.icons8.com/fluent/72/grand-master-key.png"> <em>privater</em> und ein <img class="icon" src="https://img.icons8.com/fluent/72/key-security.png"> <em>öffentlicher</em> Schlüssel generiert.</p>
+
+<p>Man spricht von einem <em>asymmetrischen</em> Verschlüsselungsverfahren, da die beiden Kommunikationsteilnehmer keinen gemeinsamen, geheimen Schlüssel benötigen.</p>
+
+<p>Auch wenn in einer Blockchain die Transaktionen selber nicht verschlüsselt werden, ist der Prozess des Verschlüsselns an einer zu sendenden Nachricht relativ einfach zu verstehen. <br/>Um das Verfahren so verständlich wie möglich zu machen schauen wir uns das ganze anhand eines Gespräches zwischen zwei Personen, <em>Alice</em> und <em>Bob</em> an.</p>
+
+<div class="block">
+	<p class="block-title">Alice und Bob</p>
+	<p>Die Namen <i>Alice</i> und <i>Bob</i> werden in vielen Kryptographischen Anleitungen als die beiden Standard Namen für <i>Sender</i> und <i>Empfänger</i> verwendet. <br>
+		In jeder dieser Geschichten möchten sich Alice und Bob geheime Nachrichten untereinander senden, ohne das eine dritte Person <i>Eve</i> der Angreifer (engl.: „evil”, zu deutsch: „böse”) die Nachricht lesen kann.</p>
+<p><sup><a id="ffn13" href="#fn13" class="footnote">13</a></sup></p>
+
+</div>
+<h4>Verschlüsselung und Verifizierung</h4>
+
+<ol>
+	<li>Nehmen wir an, Alice möchte Bob eine vertrauliche Nachricht über das Internet zukommen lassen. Eine unverschlüsselte Nachricht kann jeder im Internet lesen und Alice Geheimnisse wären nicht länger geheim. Bob macht daraufhin den Vorschlag, dass Alice die Nachricht mit seinem vorher generierten Public Key verschlüsseln kann.<br/><img src="Legende.png"/><br/><img src="pk-sz1.png"/></li>
+	<li>Alice nimmt nun Bobs Public-Key und verschlüsselt die Nachricht. Die Nachricht ist nun für einen Außenstehenden komplett unleserlich und könnte so zu Bob gesendet werden. <br/>Das Problem, Bob weiß nicht mit Sicherheit, dass die Nachricht von Alice kommt. Jemand anderes könnte von seinem öffentlichen Schlüssel gehört haben und diesen verwendet haben um eine fehlerhafte Nachricht an Bob zu senden.<br/>Nun hat Alice die Idee. Sie verwendet ihren privaten Schlüssel und verschlüsselt die bereits verschlüsselte Nachricht noch einmal. <br/>Nun kann die Nachricht gesendet werden.<br/><img src="pk-sz2.png"/></li>
+	<li>Für das Entschlüsseln der Nachricht benötigt Bob nun sowohl seinen Private-Key als auch Alice’s Public-Key den sie ihm rasch mitteilt. Bob weiß nun, dass die Nachricht keiner gelesen hat und auch garantiert von Alice stammt.<br/><img src="pk-sz3.png"/><br/>(Miles, 2014) <sup><a id="ffn14" href="#fn14" class="footnote">14</a></sup><br/></li>
+</ol>
+
+<div class="block">
+	<p class="block-title">Übertragung der Public-Keys</p>
+	<p>Wie in der Geschichte zu sehen war, wurde an zwei Punkten der Public Key öffentlich über das Internet ausgetauscht. Um sicherzustellen, dass dieser Key nicht manipuliert oder durch den eines anderen ersetzt wurde wird für die Übertragung das <i>Diffie-Hellman Verfahren</i> verwendet, auf welches ich hier nicht näher eingehen werde, da es zum verstehen der Blockchain nicht zwingend notwenig ist.</p>
+<p><sup><a id="ffn15" href="#fn15" class="footnote">15</a></sup></p>
+
+</div>
+<p>Wie wir gesehen haben, werden die beiden Schlüsselpaare für das Verschlüsseln und das Entschlüsseln der gesendeten Daten verwendet. Was damit möglich geworden ist, dass Signieren und Verifizieren einer Nachricht. In der Blockchain wird diese Eigenschaft verwendet um den Besitz über die Bitcoins zu bestätigen und so Transaktionen auszuführen.</p>
+
+<p></p>
+
+<p></p>
+
+<h4>Schlüsselpaar erzeugen</h4>
+
+<h5>Privater</h5>
+
+<p>Für die Erstellung des privaten Schlüssels wird ein Zufallswert benötigt. Man kann diese durch das Werfen einer Münzen erhalten. Wer allerdings nicht hunderte mal eine Münze (0 oder 1) werfen möchte, der sollte sich einen Zufallswert mit dem Computer generieren lassen.</p>
+
+<p><br/>Da, dass mathematische berechnen einer Zufallszahl für einen Computer unmöglich ist werden Zufallsfunktionen in einem Rechner „<em>Pseudo Random Number Generator</em>” (PRNG) genant. </p>
+
+<p><br/>Aus einem Startwert <em>Seed</em> „generieren” bzw. berechnen die Algorithmen einen neuen Zufallswert, welcher dann wieder für den nächsten Zufallswert verwendet wird. Nach einer gewissen Periode wiederholen sich diese Zahlen, weswegen es sich um einen <em>Deterministischen</em> Zufallsgenerator handelt. Diese generierten Zahlen sehen nur zufällig aus., bis sie sich wiederholen → <em>Pseudo</em>. <sup><a id="ffn16" href="#fn16" class="footnote">16</a></sup></p>
+
+<figure><img src="PRNG.png"/></figure>
+
+<p><em>Nicht deterministisch</em> werden, von einem Computer generierte Zahlen erst, wenn ein äußerer Einfluss als Zufallsquelle mit einbezogen wird. Ein nicht deterministischer Zufallszahlengenerator gilt dann als „kryptographisch”. <br/>Einige mögliche Bezugsquellen für in Betriebssystemen sind <sup><a id="ffn17" href="#fn17" class="footnote">17</a></sup>:</p>
+
+<ul>
+	<li>Radioaktiver Zerfall</li>
+	<li>Rauschen
+
+		<ul>
+			<li>Wärmerauschen</li>
+			<li>Akustisches Rauschen (Mikrofon)</li>
+			<li>Optisches Rauschen (Kamera)</li>
+		</ul></li>
+	<li>Nutzereingaben
+
+		<ul>
+			<li>Mausbewegung</li>
+			<li>Tastatureingaben</li>
+		</ul></li>
+</ul>
+
+<h5>Öffentlicher</h5>
+
+<p>Aus einem zuvor generierten Privat-Key lässt sich nun mit einem Algorithmus ein Public-Key erzeugen. Genau wie bei Hash-Funktionen ist es wichtig, dass die Funktion irreversibel ist. Es sich also um eine <a href="#keyword-einwegfunktion">Einwegfunktion</a> handelt. <sup><a id="ffn18" href="#fn18" class="footnote">18</a></sup></p>
+
+<p>Es gibt viele Algorithmen, die für solch eine Aufgabe in Frage kommen. Alle sind benötigen unterschiedlich viel Rechenleistung. Das entschlüsseln ist meist nur durch eine <em><a href="#keyword-bruteForceAttacke">Brute Force Attacke</a></em>, also das Ausprobieren aller möglichen Kombinationen möglich. </p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<h4>Hash-Baum</h4>
+
+<p></p>
+
+<p></p>
+
+<hr />
+
+<h2>Blockchain</h2>
+
+<p>Die <em>Blockchain</em> ist im einfachsten Sinne eine, über viele Teilnehmer (Nodes), verteilte Datenbank (zu engl.: „<em>distributed ledger</em>”). Man kann sie sich wie ein großes Kassenbuch vorstellen, in welchem man sämtliche Informationen zu allen jemals getätigten Transaktionen vorzufinden sind. <sup><a id="ffn19" href="#fn19" class="footnote">19</a></sup> </p>
+
+<div class="block">
+	<p class="block-title">Vielseitigigkeit</p>
+	<p>Eine Blockchain ist nicht auf die Bearbeitung von Kryptowährungen limitiert. Tatsächlich wird die Blockchain in den unterschiedlisten Industrien zur Protokollierung und Verifizierung verwendet.</p><br>
+<p><sup><a id="ffn20" href="#fn20" class="footnote">20</a></sup></p>
+
+</div>
+<p></p>
+
+<p>In diesem Netzwerk aus Nodes wird durch Kryptographie ein gemeinsamer Konsens erarbeitet, welcher sicherstellt, dass Transaktionen rechtmäßig ausgeführt werden. <br/>Könnte jeder frei Transaktionen erstellen, wäre dies kein sehr gutes Bezahlungssystem, da jeder jeden anderen manipulieren könnte. Wie genau diese „Konsensfindung” abläuft werde ich im Teil <a href="#aufbau" title="Aufbau einer Blockchain">Aufbau einer Blockchain</a> genau erklären.</p>
+
+<p>In einigen Medien werden die Begriffe Blockchain und Bitcoin häufig miteinander vermischt. Es ist wichtig die beiden Begriffe klar zu differenzieren. Bitcoins sind lediglich die Daten die in der Bitcoin-Blockchain gespeichert werden. </p>
+
+<p>Jede Node, im Bitcoin Netzwerk verfügt über eine komplette Kopie der Bitcoin Blockchain. Die momentane Größe der Bitcoin-Blockchain beträgt: <br/><a href="https://www.blockchain.com/charts/blocks-size"><span class="api"></span><span id="blockchainSize"></span></a> <sup><a id="ffn21" href="#fn21" class="footnote">21</a></sup></p>
+
+<h1>Work in Progress</h1>
+
+<h3>Aufbau</h3>
+
+<p>Eine Blockchain besteht aus vielen einzelnen Blöcken. Jeder Block ist durch die Referenzierung der vorherigen Block-ID mit einander verbunden.</p>
+
+<figure><img src="blockchain.png"/></figure>
+
+<h4>Block</h4>
+
+<p>Ein Block ist das Grundgerüst, dass verwendet wird, um den über die Zeit entstandenen Zahlungsverkehr zu protokollieren. Jeder Block besitzt bestimmt Eigenschaften aus welchen in einer <a href="#hashfunktion">Hashfunktion</a> die Block-ID generiert wird. Mit jeder kleinsten Änderung in dem Block verändert sich die Block-ID.</p>
+
+<p>Der erste jemals bestätigte Block wird der „Genesis-Block” bezeichnet. </p>
+
+<p>Bei der Bitcoin-Blockchain wurde dieser Grundbaustein im Jahr 2009 gelegt <a href="https://www.blockchain.com/btc/block/1">Block 1</a>. Jeder weitere Block geht auf diesen ersten Block zurück.</p>
+
+<p>Die Blockchain kann man sich daher wie eine lange Kette aus Blöcken vorstellen. Daher auch der Name „Block-Chain”.</p>
+
+<p>Neue im Bitcoin-Netzwerk angefragte Transaktionen werden in ein dafür vorgesehenes Transaktionsfeld eingetragen. In der Abbildung ist Alice Anfrage zu sehen. Sie möchte 2₿ an Bob senden. Für das erfolgreiche Ausführen dieser Transaktion müssen sowohl Alice als auch Bob ein <em>Wallet</em>, ein Portemonnaie besitzen. Selbstverständlich muss Alice über jene zu sendenden 2₿ verfügen.</p>
+
+<figure><img src="transfer.png"/></figure>
+
+<p></p>
+
+<p></p>
+
+<h4>Wallet</h4>
+
+<p>Bei einem Wallet handelt es sich um nichts anderes als einen Speicher für die Zugangsdaten zu seinen Bitcoins. Bei der Erstellung eines neuen Wallets generiert und speichert die verwendete Wallet-Anwendung einen Privaten Schlüssel der als Berechtigungsschlüssel für die, mit dem Wallet assoziierten Bitcoins verwendet wird. Ein daraus erzeugte Öffentlicher Schlüssel stellt die Adresse des Portemonnaies dar.</p>
+
+<p>Man kann sich ein Wallet wie eine Art Briefkasten vorstellen, der sich irgendwo im Bitcoin Netzwerk befindet. Für die genau Bestimmung, wo sich der Briefkasten befindet wird der Public-Key verwendet.<br/></p>
+
+<p>Möchte Alice, Bob Geld senden so benötigt sie lediglich die Adresse, an welcher sich Bobs Briefkasten befindet. Diese kann in den meisten Wallet-Anwendungen in ein dafür vorgesehenes Feld eingetragen werden. Wem dies zu lästig ist der findet in den meisten Wallet-Anwendungen einen entsprechenden <a href="#qrCode">QR-Code</a> der von der sendenden Person eingescannt werden kann.</p>
+
+<p>Für den Endnutzer gibt es eine große Auswahl an Wallet-Anwendungen. Alle basieren auf der von Satoshi Nakamoto erstellten Grundlage (<a href="https://bitcoin.org/de/download">Bitcoin Core</a>) und kommen mit unterschiedlichen Features und variierender Benutzerfreundlichkeit daher.</p>
+
+<h3>Mining</h3>
+
+<p>Möchte ein Nutzer eine Transaktion ausführen so wird zunächst eine Anfrage an das Blockchain-Netzwerk gestellt. In einem Prozess namens <a href="#mining"><em>Mining</em></a>… </p>
+
+<h4>Mining-Pool</h4>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<h3>Probleme</h3>
+
+<h3>Beispielimplementierung</h3>
+
+<h3>Anwendungsmöglichkeiten</h3>
+
+<h4>Smart Contracts</h4>
+
+<hr />
+
+<h2>Kryptowährungen</h2>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<h4>Beschaffung / Verwendung</h4>
+
+<p></p>
+
+<p></p>
+
+<h4>Altcoins</h4>
+
+<h5>Etherium</h5>
+
+<hr />
+
+<h2>Schlusswort</h2>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<!--<div class="block">
+	<p class="block-title">Was ist das <i>Darknet</i>?</p>
+	<p></p>
+<p></p>
+
+</div>-->
+<hr />
+
+<h2>Stichwortverzeichnis</h2>
+
+<table>
+<thead>
+  <tr>
+    <th>Stichwort</th>
+    <th>Bedeutung</th>
+  </tr>
+</thead>
+<tbody id="keywordTableBody">
+</tbody>
+</table>
+<hr />
+
+<h2>Quellenverzeichnis</h2>
+
+<blockquote>
+<p>Das Dokument habe ich mit dem Programm <a href="https://ulysses.app/">Ulysses</a> generiert. Die unterliegende CSS Datei, habe ich an meine Bedürfnisse angepasst und kann in dem <a href="https://bitbucket.org/KuhlTime/sin-ausarbeitung/">Repository</a>, für meine Ausarbeitung, angesehen werden.</p>
+</blockquote>
+
+
+<blockquote>
+<p>Interaktive Playgrounds habe ich über <a href="https://jsfiddle.net/">JSFiddle</a> erstellt und in diesem Dokument eingebunden.</p>
+</blockquote>
+
+
+<blockquote>
+<p>Als Backend für das Stichwortverzeichnis habe ich <a href="https://www.npoint.io/docs/f027dcb0ccaa6e6fa570">NPoint</a> verwendet.</p>
+</blockquote>
+
+
+<blockquote>
+<p>Quellen mit einem <strong>???</strong> habe ich bis jetzt noch nicht in dieses Dokument übertragen sind aber in meiner Bibliothek gespeichert<cite>
+</cite></p>
+</blockquote>
+
+<script>
+/* Preferences */
+
+let min = 2
+let max = 6
+
+let blacklist = [
+  'Inhaltsverzeichnis',
+  'Ausarbeitung für Sicherheit in Netzen'
+]
+
+/* =========== */
+
+var headers = []
+
+window.onload = function() {
+	loadLastUpdatedBitbucket('kuhltime', 'sin-ausarbeitung')
+  	generateTableOfContent()
+	fetchKeywords('https://api.jsonbin.io/b/5f089ae8a62f9b4b27626856/latest')
+	loadBitcoinBlockchainSize()
+}
+
+
+/* Functions */
+
+function loadLastUpdatedBitbucket(user, repo) {
+	let $field = document.getElementById('lastUpdated')
+	let url = `https://api.bitbucket.org/2.0/repositories/${user}/${repo}/`
+
+	fetchAsync(url)
+		.then(data => { 
+			let updated = new Date(data.updated_on)
+
+			console.log(data)
+
+			let options = { 
+				year: 'numeric', 
+				month: 'long', 
+				day: 'numeric'
+			}
+	
+			$field.innerHTML = updated.toLocaleDateString('de-DE', options)
+		})
+		.catch(error => { 
+			$field.innerHTML = 'Repository is Marked as Private'
+			$field.style.color = '#FD2220'
+			console.error(error)
+			console.error('The is unavailable or marked as private')
+		})
+}
+
+function fetchKeywords(url) {
+	fetchAsync(url)
+		.then(data => {
+			console.dir(data)
+			generateKeywordTable(data)
+		})
+		.catch(error => { 
+			generateKeywordTable([{key: "Error", value: error}])
+		})
+}
+
+function generateKeywordTable(keywords) {
+	let $body = document.getElementById('keywordTableBody')
+
+	keywords
+		.sort((a, b) => {
+			return (a.key > b.key) ? 1 : -1;
+		})
+		.forEach(keyword => {
+			let $row = document.createElement("tr");
+			let $key = document.createElement("td");
+			let $value = document.createElement("td");
+	
+			$key.innerHTML = keyword.key;
+			$value.innerHTML = keyword.value;
+
+			$key.id = "keyword-" + toCamelCase(keyword.key); 
+
+			$row.append($key);
+			$row.append($value);
+
+			$body.append($row);
+		})
+}
+
+function generateTableOfContent() {
+	let $toc = document.getElementById('toc')
+
+	$toc.innerHTML = 'Lädt ...'
+
+	// gets all the headers that are available
+  headers = getHeaders(min, max)
+	
+  // The html string that gets populated and later displayed inside the
+  // table of content #toc element
+  var html = ''
+  
+  // The previousValue stores the depth of the last header
+  var previousValue = min - 1
+
+  headers.forEach(($header, index) => {
+  	// Get values
+    let headerValue = parseInt($header.localName.charAt(1))
+    let difference = previousValue - headerValue
+    let title = $header.innerHTML
+    let camelTitle = toCamelCase(title)
+
+		// Check if title is blacklisted
+    if (blacklist.includes(title)) {
+      return
+    }
+    
+    // Update header id
+    $header.id = camelTitle
+
+    var i = 0
+
+		// Add wrapper
+    if (difference > 0) {
+      // Go out
+      for (i; i < Math.abs(difference); i++) {
+        html += '</ul>'
+        previousValue--
+      }
+
+    } else if (difference < 0) {
+      // Go in
+      for (i; i < Math.abs(difference); i++) {
+        html += '<ul>'
+        previousValue++
+      }
+    }
+
+		// Add list item
+    html += `<li><a href="#${camelTitle}">${title}</a></li>`
+  })
+
+  $toc.innerHTML = html
+}
+
+function loadBitcoinBlockchainSize() {
+	let url = 'https://api.blockchain.info/charts/blocks-size?timespan=30days&sampled=true&metadata=false&cors=true&format=json'
+	let $field = document.getElementById('blockchainSize')
+
+	fetchAsync(url)
+		.then(data => { 
+			let newest = data.values.slice(-1)[0]
+			let date = new Date(newest.x * 1000)
+
+			let sizeGB = Math.round(newest.y / 1000);
+	
+			let dateString = date.toLocaleDateString('de-DE')
+
+			$field.innerHTML = `${sizeGB} GB [Stand: ${dateString}]`
+		})
+		.catch(error => { 
+			$field.innerHTML = 'Fehler: 282GB [Stand: 13.6.2020]'
+			$field.style.color = '#FD2220'
+			console.error(error)
+			console.error('The is unavailable or marked as private')
+		})
+}
+
+function getHeaders(min, max) {
+  var tagNames = ''
+  var i = min
+
+  for (i; i <= max; i++) {
+    tagNames += `h${i}`
+    if (i != max) {
+      tagNames += ','
+    }
+  }
+
+  return document.querySelectorAll(tagNames)
+}
+
+// https://stackoverflow.com/a/2970588/4179020
+function toCamelCase(str) {
+  return str
+	.replaceAll('-', '')
+    .replace(/\s(.)/g, function($1) {
+      return $1.toUpperCase();
+    })
+    .replace(/\s/g, '')
+    .replace(/^(.)/, function($1) {
+      return $1.toLowerCase();
+    });
+}
+
+//https://gist.github.com/msmfsd/fca50ab095b795eb39739e8c4357a808 
+// async function
+async function fetchAsync (url) {
+  // await response of fetch call
+  let response = await fetch(url);
+  // only proceed once promise is resolved
+  let data = await response.json();
+  // only proceed once second promise is resolved
+  return data;
+}
+
+/* ========= */
+</script>
+
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$']]}});</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=default' async></script>
+
+
+<ol id="footnotes">
+	<li id="fn1">finanzen.net. (2020). Entwicklung des Bitcoin-Kurses von Januar 2017 bis Juni 2020 (in Euro). Statista. Statista GmbH. Zugriff: 11. Juni 2020. <br/><a href="https://de.statista.com/statistik/daten/studie/781906/umfrage/kursentwicklung-des-bitcoin-gegenueber-dem-euro/">https://de.statista.com/statistik/daten/studie/781906/umfrage/kursentwicklung-des-bitcoin-gegenueber-dem-euro/</a> <a href="#ffn1">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn2">Beattie, A. (2019): The History of Money: From Barter to Banknotes. Investopedia. Zugriff: 12.6.2020
+
+		<p><a href="">https://www.investopedia.com/articles/07/roots_of_money.asp</a> <a href="#ffn2">&#8617;</a></p>
+	</li>
+	<li id="fn3">Reich Krösus. Aber wie reich war Krösus eigentlich? (2017): in: redensarten.net. Zugriff: 12.06.2020.<br/><a href="">https://www.redensarten.net/kroesus/</a> <a href="#ffn3">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn4">Eigenschaft des Geldes (2016). Projektarbeit der Oberstufe des Beruflichen Gymnasium Kiel. Zugriff: 12.06.2020<br/><a href="http://www.berufliches-gymnasium-kiel.de/VWLProjekt/merkmale-des-geldes">http://www.berufliches-gymnasium-kiel.de/VWLProjekt/merkmale-des-geldes</a> <a href="#ffn4">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn5"><p><a href="#ffn5">&#x21A9;&#xFE0E;</a></p></li>
+	<li id="fn6">Nakamoto, S. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System. Bitcoin.org. Zugriff: 10.6.2020
+
+		<p><a href="">https://bitcoin.org/bitcoin.pdf</a> <a href="#ffn6">&#8617;</a></p>
+	</li>
+	<li id="fn7">Kenton, W. (2020). Satoshi Nakamoto. Bitcoin.org. Zugriff: 13.6.2020
+
+		<p><a href="">https://www.investopedia.com/terms/s/satoshi-nakamoto.asp</a> <a href="#ffn7">&#8617;</a></p>
+	</li>
+	<li id="fn8">Müller, M. (2017): 21 Millionen Bitcoins bis 2130. Focus Online. Zugriff: 7.7.2020
+
+		<p><a href="">https://www.focus.de/finanzen/geldanlage/tid-30404/virtuelles-geld-bitcoins-rasanter-aufstieg-einer-phantom-waehrung-beschraenktes-angebot-virtueller-muenzen_aid_952842.html</a> <a href="#ffn8">&#8617;</a></p>
+	</li>
+	<li id="fn9">Tripoli, M. und Schmiedhuber, J. (2018): Emerging Opportunities for the Application of Blockchain in the Agri-food Industry. Seite: 12. Food and Agriculture Organization of the United Nations, International Centre for Trade and Sustainable Development. Zugriff: 7.7.2020
+
+		<p><a href="">https://www.researchgate.net/publication/327867089_Emerging_Opportunities_for_the_Application_of_Blockchain_in_the_Agri-food_Industry</a> <a href="#ffn9">&#8617;</a></p>
+	</li>
+	<li id="fn10">(2020): Kryptographie. Wikipedia. Zugriff: 8.7.2020
+
+		<p><a href="">https://de.wikipedia.org/wiki/Kryptographie</a> <a href="#ffn10">&#8617;</a></p>
+	</li>
+	<li id="fn11">(2019): Secure Hash Algorithm. Wikipedia. Zugriff: 7.7.2020
+
+		<p><a href="">https://de.wikipedia.org/wiki/Secure_Hash_Algorithm</a> <a href="#ffn11">&#8617;</a></p>
+	</li>
+	<li id="fn12">??? <a href="#ffn12">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn13">Schnabel, P. (2020): Wer sind Alice, Bob und Mallory? (Kryptografie). Elektronik Kompendium. Zugriff: 8.7.2020
+
+		<p><a href="">https://www.elektronik-kompendium.de/sites/net/1909021.htm</a> <a href="#ffn13">&#8617;</a></p>
+	</li>
+	<li id="fn14">Miles, R. (2014): Public Key Cryptography. Computerphile (YouTube). Zugriff: 8.7.2020
+
+		<p><a href="">https://www.youtube.com/watch?v=GSIDS_lvRv4</a> <a href="#ffn14">&#8617;</a></p>
+	</li>
+	<li id="fn15">??? <a href="#ffn15">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn16">??? <a href="#ffn16">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn17">Cellio, M. (2014): How does an operating system create entropy for random seeds?. Computer Science Stack Exchange. Zugriff: 8.7.2020
+
+		<p><a href="">https://cs.stackexchange.com/a/29881/123292</a> <a href="#ffn17">&#8617;</a></p>
+	</li>
+	<li id="fn18">Antonopoulos, A. (2018): Bitcoin &amp; Blockchain - Grundlagen und Programmierung. Heidelberg: O&#39;Reilly. Übersetzung: Kilcman, P., Seiten: Public-Key-Kryptografie und Kryptowährungen <a href="#ffn18">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn19">Higginson, M. und London, S. (2018): Blockchain explained: What it is and isn&#39;t, and why it matters. McKinsey. Zugriff: 7.6.2020
+
+		<p><a href="">https://www.mckinsey.com/business-functions/mckinsey-digital/our-insights/blockchain-explained-what-it-is-and-isnt-and-why-it-matters</a> <a href="#ffn19">&#8617;</a></p>
+	</li>
+	<li id="fn20">??? <a href="#ffn20">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn21">Blockchain.com (2020). Blockchain Charts API. Blockchain-Größe (MB). Verwendete API für Live Daten. <a href="">https://api.blockchain.info/charts/blocks-size?timespan=30days&amp;sampled=true&amp;metadata=false&amp;cors=true&amp;format=json</a>. <a href="#ffn21">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn22">??? <a href="#ffn22">&#x21A9;&#xFE0E;</a></li>
+</ol></body>
+</html>
+
